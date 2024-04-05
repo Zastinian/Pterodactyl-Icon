@@ -82,14 +82,9 @@ Guarda y cierra el archivo
 Comando de la terminal (SÓLO PROBADOS EN UBUNTU, PUEDE QUE NO FUNCIONEN EN OTRO SISTEMA OPERATIVO):
 
 cd /var/www/pterodactyl
-php artisan down
-php artisan migrate --seed --force
-yarn install
-yarn build:production
-php artisan config:cache
-php artisan view:cache
-php artisan queue:restart
-php artisan up
+chown -R www-data:www-data /var/www/pterodactyl/
+chmod -R 755 storage/* bootstrap/cache/
+php artisan optimize:clear
 
 Una vez puesto si no te carga debes usar control + f5 de 3 a 4 veces para recargar el cache de la pagina y ya te cargue correctamente.
 

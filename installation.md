@@ -71,25 +71,20 @@ How to put the custom icon
 Open /var/www/pterodactyl/public/hedystia/icon.json
 
 Search
-"icon": "https://cdn.discordapp.com/attachments/851919671878746112/955534101627162624/pterodactylicon.png"
+"icon": "https://cdn.onlinewebfonts.com/svg/img_337531.png"
 
 Replace the link with the image you like as the panel icon
 
-https://cdn.discordapp.com/attachments/851919671878746112/955534101627162624/pterodactylicon.png
+https://cdn.onlinewebfonts.com/svg/img_337531.png
 
 Save and close the file
 
 Terminal command (ONLY TESTED ON UBUNTU, MAY NOT WORK ON OTHER OPERATING SYSTEMS):
 
 cd /var/www/pterodactyl
-php artisan down
-php artisan migrate --seed --force
-yarn install
-yarn build:production
-php artisan config:cache
-php artisan view:cache
-php artisan queue:restart
-php artisan up
+chown -R www-data:www-data /var/www/pterodactyl/
+chmod -R 755 storage/* bootstrap/cache/
+php artisan optimize:clear
 
 Once set, if it does not load, use control + f5 3 or 4 times to reload the page cache and load correctly.
 
